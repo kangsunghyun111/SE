@@ -1,5 +1,26 @@
+[kangsunghyun111] Sun May 1 14:42:10 2022 +0900 UIScreenDesign 66c36c8 
+[kangsunghyun111] Sun May 1 14:41:56 2022 +0900 UIScreenDesign JPG 67e5511 
+[kangsunghyun111] Sun May 1 14:40:00 2022 +0900 Merge branch 'master' of https://github.com/kangsunghyun111/SE c9d9ea5 
+[dungdung-2016] Sun May 1 14:22:56 2022 +0900 Use case description 61921ea 
+[LeeHwiGyoung] Sun May 1 13:54:03 2022 +0900 LHG UI be3eab1 
+[kangsunghyun111] Sat Apr 30 17:42:34 2022 +0900 KSH UI screen design 749edf2 
+[dungdung-2016] Fri Apr 29 23:25:52 2022 +0900 Use case description 7748c31 
+[dungdung-2016] Fri Apr 29 23:24:36 2022 +0900 Delete 스크린샷(358).png b630dc9 
+[dungdung-2016] Fri Apr 29 23:24:15 2022 +0900 UI screen design 9cedb4f 
+[dungdung-2016] Fri Apr 29 22:36:25 2022 +0900 Delete 스크린샷(357).png 725f60d 
+[dungdung-2016] Fri Apr 29 22:36:16 2022 +0900 Add files via upload ca3d87b 
+[LeeHwiGyoung] Fri Apr 29 22:05:18 2022 +0900 LHG UseCaseDescritions 4798a60 
+[kangsunghyun111] Fri Apr 29 17:09:52 2022 +0900 KSH use case descriptions a50fde0 
+[kangsunghyun111] Fri Apr 29 14:24:36 2022 +0900 KSH Use case descriptions e79adbb 
+[kangsunghyun111] Fri Apr 29 14:23:10 2022 +0900 commit log 714cb5c 
+[이휘경] Thu Apr 28 20:01:22 2022 +0900 Delete log_output.txt c27dc05 
+[이휘경] Thu Apr 28 20:01:13 2022 +0900 Delete Requirement List.pdf b87b084 
+[이휘경] Thu Apr 28 20:00:44 2022 +0900 Delete UseCaseDiagram.jpg 005152f 
+[이휘경] Thu Apr 28 19:59:29 2022 +0900 Delete ActorDescriptions.pdf d0ca93a 
+[LeeHwiGyoung] Thu Apr 28 19:58:44 2022 +0900 actor 196ff4b 
 [kangsunghyun111] Thu Apr 28 19:52:30 2022 +0900 UseCaseDiagram JPG 7dab61a 
 [LeeHwiGyoung] Thu Apr 28 19:45:59 2022 +0900 UseCaseDiagram 수정 4fc315e 
+[LeeHwiGyoung] Thu Apr 28 19:43:26 2022 +0900 usecasediagram 0120fb3 
 [kangsunghyun111] Thu Apr 28 19:18:42 2022 +0900 Add log 41beb2a 
 [kangsunghyun111] Thu Apr 28 18:55:20 2022 +0900 1조 ActorDescriptions 0f1132d 
 [dungdung-2016] Thu Apr 28 18:48:50 2022 +0900 Requirement List 0e609b3 
