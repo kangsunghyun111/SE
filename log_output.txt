@@ -1,3 +1,4 @@
+[kangsunghyun111] Wed May 18 20:51:03 2022 +0900 git commit log 52d4e0d 
 [kangsunghyun111] Wed May 18 20:49:28 2022 +0900 HW2 analysis class diagram 5b454d3 
 [kangsunghyun111] Wed May 18 20:45:12 2022 +0900 HW2 use case diagram 5073bad 
 [kangsunghyun111] Wed May 18 20:42:59 2022 +0900 HW2 communication diagram 30aa4f8 
@@ -5,6 +6,13 @@
 [LeeHwiGyoung] Tue May 17 20:54:14 2022 +0900 final 4a641b2 
 [kangsunghyun111] Tue May 17 20:45:42 2022 +0900 HW2 communication diagram 42f8cd3 
 [dungdung-2016] Tue May 17 20:40:54 2022 +0900 Analysis class diagram 25a832b 
+[LeeHwiGyoung] Tue May 17 18:37:17 2022 +0900 수정 46e2d72 
+[dungdung-2016] Tue May 17 17:59:20 2022 +0900 Analysis class diagram 6581d1d 
+[dungdung-2016] Tue May 17 17:59:00 2022 +0900 Communication diagram 50a0a48 
+[dungdung-2016] Tue May 17 17:58:38 2022 +0900 Delete communication diagram.vpp cbcb758 
+[dungdung-2016] Tue May 17 17:57:06 2022 +0900 Communication diagram 92a07ed 
+[dungdung-2016] Tue May 17 17:56:35 2022 +0900 Analysis class diagram 10bb593 
+[LeeHwiGyoung] Mon May 16 18:03:25 2022 +0900 usecase, usecaseDescription, communicationDiagram : hw2 = communicationDiagram + UseCaseDiagram f4e59b5 
 [kangsunghyun111] Sat May 14 14:48:28 2022 +0900 HW2 analysis class diagram 624a3ab 
 [kangsunghyun111] Sat May 14 12:22:09 2022 +0900 HW2 communication diagram e9f9dcc 
 [kangsunghyun111] Fri May 13 15:36:34 2022 +0900 HW2 use case descriptions 147c882 
