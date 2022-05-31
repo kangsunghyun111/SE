@@ -6,6 +6,9 @@
 class Product
 {
 private:
+	Product* prevProduct;
+	Product* nextProduct;
+
 	string sellerID;
 	string productName;
 	string companyName;
@@ -25,6 +28,11 @@ public:
 	int getAvgSatisfaction();
 	void minusCount();
 	void setSatisfaction();
+
+	void setPrevProduct(Product* productPointer);
+	void setNextProduct(Product* productPointer);
+	Product* getPrevProduct();
+	Product* getNextProduct();
 };
 
 Product::Product()
@@ -87,5 +95,19 @@ void Product::setSatisfaction()
 	this->satisfaction++;
 }
 
+void Product::setPrevProduct(Product* productPointer) {
+	this->prevProduct = productPointer;
+}
 
+void Product::setNextProduct(Product* productPointer) {
+	this->nextProduct = productPointer;
+}
+
+Product* Product::getPrevProduct() {
+	return this->prevProduct;
+}
+
+Product* Product::getNextProduct() {
+	return this->nextProduct;
+}
 
