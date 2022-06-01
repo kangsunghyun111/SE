@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "ShoppingSite.h"
+#include "ControlAndBoundary.h"
 using namespace std;
 
 #define MAX_STRING 32
@@ -10,10 +10,6 @@ using namespace std;
 
 // 함수 선언
 void doTask();
-void Signup();					// 회원가입
-void MembershipWithdrawal();	// 회원탈퇴
-void Login();					// 로그인
-void Logout();					// 로그아웃
 
 void program_exit();
 
@@ -46,11 +42,15 @@ void doTask()
 		case 1:{
 			switch (menu_level_2){
 			case 1: {
-				Signup();
+				Signup* signup = new Signup(in_fp, &shoppingSite);
+				signup->signupUI->printSignupMessage(out_fp);
+				delete signup;
 				break;
 			}
 			case 2: {
-				MembershipWithdrawal();
+				MembershipWithdrawl* membershipWithdrawl = new MembershipWithdrawl(&shoppingSite);
+				membershipWithdrawl->membershipWithdrawlUI->printWithdrawMessage(out_fp);
+				delete membershipWithdrawl;
 				break;
 			}
 			default:
@@ -61,11 +61,15 @@ void doTask()
 		case 2: {
 			switch (menu_level_2){
 			case 1: {
-				Login();
+				Login* login = new Login(in_fp, &shoppingSite);
+				login->loginUI->printLoginMessage(out_fp);
+				delete login;
 				break;
 			}
 			case 2: {
-				Logout();
+				Logout* logout = new Logout(&shoppingSite);
+				logout->logoutUI->printLogoutMessage(out_fp);
+				delete logout;
 				break;
 			}
 			default:
@@ -92,45 +96,6 @@ void doTask()
 }
 
 void program_exit() {
+	cout << "6.1 종료\n";
 	out_fp << "6.1 종료\n";
-}
-
-void Signup() {
-	string name, ssn, id, pw;
-	in_fp >> name >> ssn >> id >> pw;
-	cout << name << ssn << id << pw << "\n";
-
-	shoppingSite.addNewMember(name, ssn, id, pw);
-
-	out_fp << "1.1 회원가입\n> ";
-	out_fp << name << ' ' << ssn << ' ' << id << ' ' << pw << "\n";
-}
-
-void MembershipWithdrawal() {
-	string memberId;
-	memberId = shoppingSite.deleteMember();
-	cout << memberId << "\n";
-
-	out_fp << "1.2 회원탈퇴\n> ";
-	out_fp << memberId << "\n";
-}
-
-void Login() {
-	string id, pw;
-	in_fp >> id >> pw;
-	cout << id << pw << "\n";
-
-	bool result = shoppingSite.checkLoginInfo(id, pw);
-
-	out_fp << "2.1 로그인\n> ";
-	out_fp << id << ' ' << pw << "\n";
-}
-
-void Logout() {
-	string memberId;
-	memberId = shoppingSite.doLogout();
-	cout << memberId << "\n";
-
-	out_fp << "2.2 로그아웃\n> ";
-	out_fp << memberId << "\n";
 }

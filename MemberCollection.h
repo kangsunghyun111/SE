@@ -16,8 +16,6 @@ public:
 	bool findMember(string id, string pw);
 	void addNewMember(string name, string ssn, string id, string pw);
 	void deleteMember(string id);
-
-	
 };
 
 MemberCollection::MemberCollection()
@@ -29,6 +27,27 @@ MemberCollection::MemberCollection()
 
 MemberCollection::~MemberCollection()
 {
+}
+
+bool MemberCollection::findMember(string id, string pw) {
+	string memberId;
+	string memberPw;
+	Member* temp = head;
+	if (head == NULL) {
+		return false;
+	}
+	else {
+		do {
+			memberId = temp->getId();
+			memberPw = temp->getPw();
+			if (memberId == id && memberPw == pw) {
+				return true;
+			}
+			temp = temp->getNextMember();
+		} while (temp != NULL);
+
+		return false;
+	}
 }
 
 void MemberCollection::addNewMember(string name, string ssn, string id, string pw) {
@@ -74,25 +93,4 @@ void MemberCollection::deleteMember(string id) {
 
 	numberOfMember--;
 	delete temp;
-}
-
-bool MemberCollection::findMember(string id, string pw) {
-	string memberId;
-	string memberPw;
-	Member* temp = head;
-	if (head == NULL) {
-		return false;
-	}
-	else {
-		do {
-			memberId = temp->getId();
-			memberPw = temp->getPw();
-			if (memberId == id && memberPw == pw) {
-				return true;
-			}
-			temp = temp->getNextMember();
-		} while (temp != NULL);
-
-		return false;
-	}
 }
