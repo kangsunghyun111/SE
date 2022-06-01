@@ -42,7 +42,8 @@ void doTask()
 		case 1:{
 			switch (menu_level_2){
 			case 1: {
-				Signup* signup = new Signup(in_fp, &shoppingSite);
+				Signup* signup = new Signup(&shoppingSite);
+				signup->signupUI->createNewMember(in_fp);
 				signup->signupUI->printSignupMessage(out_fp);
 				delete signup;
 				break;
@@ -61,7 +62,8 @@ void doTask()
 		case 2: {
 			switch (menu_level_2){
 			case 1: {
-				Login* login = new Login(in_fp, &shoppingSite);
+				Login* login = new Login(&shoppingSite);
+				login->loginUI->enterLoginInfo(in_fp);
 				login->loginUI->printLoginMessage(out_fp);
 				delete login;
 				break;

@@ -18,7 +18,7 @@ private:
 public:
 	Signup* signup;
 	SignupUI() {};
-	SignupUI(ifstream& in_fp, Signup* signup);
+	SignupUI(Signup* signup);
 	~SignupUI() {};
 	void createNewMember(ifstream& in_fp);
 	void printSignupMessage(ofstream& out_fp);
@@ -31,15 +31,14 @@ private:
 public:
 	SignupUI* signupUI;
 	Signup() {};
-	Signup(ifstream& in_fp, ShoppingSite* shoppingSite);
+	Signup(ShoppingSite* shoppingSite);
 	~Signup() {};
 	void addNewMember(string name, string ssn, string id, string pw);
 };
 
 
-SignupUI::SignupUI(ifstream& in_fp, Signup* signup) {
+SignupUI::SignupUI(Signup* signup) {
 	this->signup = signup;
-	createNewMember(in_fp);
 }
 void SignupUI::createNewMember(ifstream& in_fp) {
 	string name, ssn, id, pw;
@@ -58,9 +57,9 @@ void SignupUI::printSignupMessage(ofstream& out_fp) {
 }
 
 
-Signup::Signup(ifstream& in_fp, ShoppingSite* shoppingSite) {
+Signup::Signup(ShoppingSite* shoppingSite) {
 	this->shoppingSite = shoppingSite;
-	this->signupUI = new SignupUI(in_fp, this);
+	this->signupUI = new SignupUI(this);
 }
 void Signup::addNewMember(string name, string ssn, string id, string pw) {
 	this->shoppingSite->addNewMember(name, ssn, id, pw);
@@ -76,9 +75,9 @@ private:
 	string memberId;
 public:
 	MembershipWithdrawl* membershipWithdrawl;
-	MembershipWithdrawlUI(){};
+	MembershipWithdrawlUI() {};
 	MembershipWithdrawlUI(MembershipWithdrawl* membershipWithdrawl);
-	~MembershipWithdrawlUI(){};
+	~MembershipWithdrawlUI() {};
 	void doMemberWithdraw();
 	void printWithdrawMessage(ofstream& out_fp);
 };
@@ -89,9 +88,9 @@ private:
 	ShoppingSite* shoppingSite;
 public:
 	MembershipWithdrawlUI* membershipWithdrawlUI;
-	MembershipWithdrawl(){};
+	MembershipWithdrawl() {};
 	MembershipWithdrawl(ShoppingSite* shoppingSite);
-	~MembershipWithdrawl(){};
+	~MembershipWithdrawl() {};
 	string doMemberWithdraw();
 };
 
@@ -134,9 +133,9 @@ private:
 	bool result;
 public:
 	Login* login;
-	LoginUI(){};
-	LoginUI(ifstream& in_fp, Login* login);
-	~LoginUI(){};
+	LoginUI() {};
+	LoginUI(Login* login);
+	~LoginUI() {};
 	void enterLoginInfo(ifstream& in_fp);
 	void printLoginMessage(ofstream& out_fp);
 };
@@ -147,16 +146,15 @@ private:
 	ShoppingSite* shoppingSite;
 public:
 	LoginUI* loginUI;
-	Login(){};
-	Login(ifstream& in_fp, ShoppingSite* shoppingSite);
-	~Login(){};
+	Login() {};
+	Login(ShoppingSite* shoppingSite);
+	~Login() {};
 	bool passLoginInfo(string id, string pw);
 };
 
 
-LoginUI::LoginUI(ifstream& in_fp, Login* login){
+LoginUI::LoginUI(Login* login) {
 	this->login = login;
-	enterLoginInfo(in_fp);
 }
 
 void LoginUI::enterLoginInfo(ifstream& in_fp) {
@@ -170,14 +168,14 @@ void LoginUI::enterLoginInfo(ifstream& in_fp) {
 }
 void LoginUI::printLoginMessage(ofstream& out_fp) {
 	out_fp << "2.1 ·Î±×ÀÎ\n> ";
-	if(result)
+	if (result)
 		out_fp << id << ' ' << pw << "\n";
 }
 
 
-Login::Login(ifstream& in_fp, ShoppingSite* shoppingSite){
+Login::Login(ShoppingSite* shoppingSite) {
 	this->shoppingSite = shoppingSite;
-	this->loginUI = new LoginUI(in_fp, this);
+	this->loginUI = new LoginUI(this);
 }
 
 bool Login::passLoginInfo(string id, string pw) {
@@ -194,9 +192,9 @@ private:
 	string memberId;
 public:
 	Logout* logout;
-	LogoutUI(){};
+	LogoutUI() {};
 	LogoutUI(Logout* logout);
-	~LogoutUI(){};
+	~LogoutUI() {};
 	void doLogout();
 	void printLogoutMessage(ofstream& out_fp);
 };
@@ -207,14 +205,14 @@ private:
 	ShoppingSite* shoppingSite;
 public:
 	LogoutUI* logoutUI;
-	Logout(){};
+	Logout() {};
 	Logout(ShoppingSite* shoppingSite);
-	~Logout(){};
+	~Logout() {};
 	string doLogout();
 };
 
 
-LogoutUI::LogoutUI(Logout* logout){
+LogoutUI::LogoutUI(Logout* logout) {
 	this->logout = logout;
 	doLogout();
 }
@@ -230,7 +228,7 @@ void LogoutUI::printLogoutMessage(ofstream& out_fp) {
 }
 
 
-Logout::Logout(ShoppingSite* shoppingSite){
+Logout::Logout(ShoppingSite* shoppingSite) {
 	this->shoppingSite = shoppingSite;
 	this->logoutUI = new LogoutUI(this);
 }
