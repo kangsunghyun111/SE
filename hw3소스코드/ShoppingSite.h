@@ -11,12 +11,10 @@ class ShoppingSite
 private:
 	string currentUserId;
 	MemberCollection ownedMemberCollection;
-
 	BuyerCollection ownedBuyerCollection;
 	ProductList ownedProductList;
 	Product* currentProduct;
 	Buyer* currentBuyer;
-
 public:
 	
 	ShoppingSite();
@@ -26,17 +24,14 @@ public:
 	bool checkLoginInfo(string id, string pw);
 	string doLogout();
 	string deleteMember();
-	
-	
-	
 	Product* getCurrentProduct();
 	Product* getProductInfo(string productName);
-
 	void addNewbuyer();
 	bool checkBuyer();
-	
 	void purchaseProduct();
 	Buyer* getCurrentBuyer();
+	ProductList* getProductListOnSale();
+	ProductList* getProductListOnSold();
 };
 
 ShoppingSite::ShoppingSite()
@@ -99,8 +94,7 @@ Product* ShoppingSite::getCurrentProduct()
 }
 
 void ShoppingSite::addNewbuyer() {
-    this->currentBuyer=ownedBuyerCollection.addBuyer(this->currentUserId);
-
+	currentBuyer=ownedBuyerCollection.addBuyer(this->currentUserId);
 }
 
 bool ShoppingSite::checkBuyer() {
@@ -114,12 +108,53 @@ bool ShoppingSite::checkBuyer() {
 	return false;
 }
 
-
-
 void ShoppingSite::purchaseProduct() {
 	this->currentBuyer->purchaseProduct(currentProduct);
 }
 
 Buyer* ShoppingSite::getCurrentBuyer() {
 	return this->currentBuyer;
+}
+ProductList* ShoppingSite::getProductListOnSale() {
+	ProductList* ProductListOnSale = new ProductList();
+	string sellerId;
+	Product* temp = ownedProductList.getHead();
+	if (ownedProductList.getHead() == NULL) {
+		return NULL;
+	}
+	else {
+		do {
+			sellerId = temp->getSellerID();
+			if (currentUserId == sellerId) {
+				if (temp->getCount() > 0) {
+					ProductListOnSale->addNewProduct(temp->getSellerID(), temp->getProductName(), temp->getCompanyName(), temp->getPrice(), temp->getCount());
+				}
+			}
+			temp = temp->getNextProduct();
+		} while (temp != NULL);
+	}
+	return ProductListOnSale;
+	delete ProductListOnSale;
+}
+
+ProductList* ShoppingSite::getProductListOnSold() {
+	ProductList* ProductListOnSold = new ProductList();
+	string sellerId;
+	Product* temp = ownedProductList.getHead();
+	if (ownedProductList.getHead() == NULL) {
+		return NULL;
+	}
+	else {
+		do {
+			sellerId = temp->getSellerID();
+			if (currentUserId == sellerId) {
+				if (temp->getCountSold() > 0) {
+					ProductListOnSold->addNewProduct(temp->getSellerID(), temp->getProductName(), temp->getCompanyName(), temp->getPrice(), temp->getCount());
+				}
+			}
+			temp = temp->getNextProduct();
+		} while (temp != NULL);
+	}
+	return ProductListOnSold;
+	delete ProductListOnSold;
 }

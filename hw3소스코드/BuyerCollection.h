@@ -37,6 +37,7 @@ Buyer* BuyerCollection::addBuyer(string id) {
         tail->setNextBuyer(newBuyer);
         tail = newBuyer;
     }
+    return tail;
 }
 Buyer* BuyerCollection::findBuyer(string id) {
     string buyerId;
