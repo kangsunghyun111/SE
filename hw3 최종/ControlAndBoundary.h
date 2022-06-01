@@ -341,6 +341,7 @@ Product* ProductPurchase::productPurchase() {
 	temp = this->shoppingSite->getCurrentProduct();
 	if (temp && temp->getCount() > 0) {
 		temp->minusCount();
+		temp->setAvgSatisfaction();
 	
 		if (!this->shoppingSite->checkBuyer()) {
 			this->shoppingSite->addNewbuyer();
@@ -432,7 +433,7 @@ public:
 };
 
 void SatisfationUI::evaluateSatisfaction(ifstream& in_fp) {
-	int satisfaction;
+	float satisfaction;
 	string productName;
 	in_fp >> productName >> satisfaction;
 	this->satisfactionScore = satisfaction;

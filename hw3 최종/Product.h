@@ -36,7 +36,7 @@ public:
     int getCountSold();
     int getPrice();
     float getAvgSatisfaction();
-    int getSatisfaction();
+    float getSatisfaction();
 
     void plusCountSold();
     void minusCount();
@@ -118,7 +118,7 @@ void Product::setSatisfaction(int score)
 void Product::setAvgSatisfaction()
 {
     if (this->countSold != 0) {
-        this->avgSatisfaction = this->satisfaction / this->countSold;
+        this->avgSatisfaction = (float)this->satisfaction / (float)this->countSold;
     }
 }
 
@@ -142,7 +142,7 @@ void Product::setCountSold(int countSold)
 {
     this->countSold = countSold;
 }
-int Product::getSatisfaction()
+float Product::getSatisfaction()
 {
     return this->satisfaction;
 }

@@ -51,7 +51,7 @@
 >mbc hat 
 43
 4.3 상품 구매 내역 조회
->mbc hat chulsoo 1 0 3
+>mbc hat chulsoo 1 0 1.5
 44
 4.4 상품 구매만족도 평가
 > mbc hat 5
