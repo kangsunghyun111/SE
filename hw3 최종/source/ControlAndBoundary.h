@@ -362,8 +362,6 @@ class PurchaseList;
 class PurchaseListUI;
 
 class PurchaseListUI {
-private:
-	Buyer* curBuyer;
 public:
 	PurchaseList* purchaseList;
 	PurchaseListUI() {};
@@ -379,7 +377,8 @@ public:
 	PurchaseList() {};
 	PurchaseList(ShoppingSite* shoppingSite);
 	~PurchaseList() {};
-	Buyer* purchaseList();
+	void purchaseList();
+	void showBuyList();
 };
 
 PurchaseListUI::PurchaseListUI(PurchaseList* purchaseList) {
@@ -387,21 +386,20 @@ PurchaseListUI::PurchaseListUI(PurchaseList* purchaseList) {
 	showPurhcaseList();
 }
 void PurchaseListUI::showPurhcaseList() {
-	cout << "4.3 상품 구매 내역 조회\n>";
-	curBuyer = this->purchaseList->purchaseList();
-	if (curBuyer)
-	{
-		curBuyer->showBuyList();
-	}
+	this->purchaseList->purchaseList();
 }
+
 
 PurchaseList::PurchaseList(ShoppingSite* shoppingSite) {
 	this->shoppingSite = shoppingSite;
 	this->purchaseListUI = new PurchaseListUI(this);
 }
-Buyer* PurchaseList::purchaseList() {
+void PurchaseList::purchaseList() {
 	this->shoppingSite->checkBuyer();
-	return this->shoppingSite->getCurrentBuyer();
+	if (this->shoppingSite->getCurrentBuyer()) {
+		cout << "4.3 상품 구매 내역 조회\n>";
+		this->shoppingSite->purchaseList();
+	}
 }
 
 class SatisfactionUI;
@@ -409,8 +407,9 @@ class Satisfaction;
 
 class SatisfationUI {
 private:
-	int satisfactionScore;
+	float satisfactionScore;
 	string productName;
+	string sellerId;
 	Product* curProduct;
 public:
 	Satisfaction* satisfation;
@@ -430,6 +429,7 @@ public:
 	Satisfaction(ShoppingSite* shoppingSite);
 	~Satisfaction() {};
 	Product* getProductInfo(string productName);
+	void evaluateSatisfaction(string productName, float satisfaction);
 };
 
 void SatisfationUI::evaluateSatisfaction(ifstream& in_fp) {
@@ -439,12 +439,7 @@ void SatisfationUI::evaluateSatisfaction(ifstream& in_fp) {
 	this->satisfactionScore = satisfaction;
 	this->productName = productName;
 	this->curProduct = this->satisfation->getProductInfo(productName);
-	this->curProduct->setSatisfaction(satisfaction);
-	this->curProduct->setAvgSatisfaction();
-	cout << "4.4 상품 구매만족도 평가\n> ";
-	cout << curProduct->getSellerID() << " " << curProduct->getProductName() << " " << satisfactionScore << "\n";
-
-
+	this->satisfation->evaluateSatisfaction(productName, satisfaction);
 }
 
 void SatisfationUI::printSatisfaction(ofstream& out_fp) {
@@ -462,6 +457,19 @@ Satisfaction::Satisfaction(ShoppingSite* shoppingSite) {
 	this->shoppingSite = shoppingSite;
 	this->satisfactionUI = new SatisfationUI(this);
 }
+
+void Satisfaction::evaluateSatisfaction(string productName, float satisfaction) {
+	Product* temp;
+	temp = this->shoppingSite->getProductInfo(productName);
+	if (temp)
+	{
+		this->shoppingSite->evaluateSatisfaction(satisfaction);
+		cout << "4.4 상품 구매만족도 평가\n> ";
+		cout << temp->getSellerID() << " " << temp->getProductName() << " " << satisfaction << "\n";
+	}
+
+}
+
 Product* Satisfaction::getProductInfo(string productName) {
 	return this->shoppingSite->getProductInfo(productName);
 }

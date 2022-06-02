@@ -29,6 +29,8 @@ public:
 	void addNewbuyer();
 	bool checkBuyer();
 	void purchaseProduct();
+	void purchaseList();
+	void evaluateSatisfaction(float satisfaction);
 	Buyer* getCurrentBuyer();
 	ProductList* getProductListOnSale();
 	ProductList* getProductListOnSold();
@@ -112,7 +114,15 @@ bool ShoppingSite::checkBuyer() {
 void ShoppingSite::purchaseProduct() {
 	this->currentBuyer->purchaseProduct(currentProduct);
 }
-
+void ShoppingSite::purchaseList()
+{
+	this->currentBuyer->showBuyList();
+}
+void ShoppingSite::evaluateSatisfaction(float satisfaction)
+{
+	this->currentProduct->setSatisfaction(satisfaction);
+	this->currentProduct->setAvgSatisfaction();
+}
 Buyer* ShoppingSite::getCurrentBuyer() {
 	return this->currentBuyer;
 }
