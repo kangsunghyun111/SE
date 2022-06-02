@@ -344,7 +344,7 @@ Product* ProductPurchase::productPurchase() {
 		temp->setAvgSatisfaction();
 	
 		if (!this->shoppingSite->checkBuyer()) {
-			this->shoppingSite->addNewbuyer();
+			this->shoppingSite->addNewBuyer();
 			this->shoppingSite->purchaseProduct();
 		}
 		else {

@@ -20,13 +20,13 @@ public:
 	ShoppingSite();
 	~ShoppingSite();
 	void addNewMember(string name, string ssn, string id, string pw);
-	void addNewProduct(string productName, string companyName, int count,int countSold, int price, int satisfaction);
 	bool checkLoginInfo(string id, string pw);
 	string doLogout();
 	string deleteMember();
+	void addNewProduct(string productName, string companyName, int count, int countSold, int price, float satisfaction);
 	Product* getCurrentProduct();
 	Product* getProductInfo(string productName);
-	void addNewbuyer();
+	void addNewBuyer();
 	bool checkBuyer();
 	void purchaseProduct();
 	void purchaseList();
@@ -75,7 +75,7 @@ string ShoppingSite::doLogout() {
 	return result;
 }
 
-void ShoppingSite::addNewProduct( string productName, string companyName, int count, int countSold, int price ,int satisfaction)
+void ShoppingSite::addNewProduct( string productName, string companyName, int count, int countSold, int price ,float satisfaction)
 {
 	ownedProductList.addNewProduct(this->currentUserId , productName, companyName, count,countSold, price ,satisfaction);
 }
@@ -96,7 +96,7 @@ Product* ShoppingSite::getCurrentProduct()
 	return this->currentProduct;
 }
 
-void ShoppingSite::addNewbuyer() {
+void ShoppingSite::addNewBuyer() {
 	currentBuyer=ownedBuyerCollection.addBuyer(this->currentUserId);
 }
 

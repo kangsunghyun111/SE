@@ -9,7 +9,6 @@ class Product
 private:
     Product* prevProduct;
     Product* nextProduct;
-
     string sellerID;
     string productName;
     string companyName;
@@ -26,18 +25,15 @@ public:
 
     Product* getPrevProduct();
     Product* getNextProduct();
-
     string getSellerID();
     string getProductName();
     string getCompanyName();
-
     void setCountSold(int countSold);
     int getCount();
     int getCountSold();
     int getPrice();
     float getAvgSatisfaction();
-    float getSatisfaction();
-
+    int getSatisfaction();
     void plusCountSold();
     void minusCount();
     void setSatisfaction(int score);
@@ -142,7 +138,7 @@ void Product::setCountSold(int countSold)
 {
     this->countSold = countSold;
 }
-float Product::getSatisfaction()
+int Product::getSatisfaction()
 {
     return this->satisfaction;
 }
